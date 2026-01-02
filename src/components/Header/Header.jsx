@@ -1,0 +1,113 @@
+import React, { useContext } from "react";
+import { DataContext } from "../../components/DataProvider/DataProvider.jsx";
+import { Link } from "react-router-dom";
+import Classes from "./Header.module.css";
+import LowerHeader from "./LowerHeader";
+import { FaSearch, FaShoppingCart, FaMapMarkerAlt } from "react-icons/fa";
+import { signOut } from "firebase/auth";
+import { auth } from "../../Utility/firebase.js"; // ✅ correct import
+
+function Header() {
+  const [{ user, basket }] = useContext(DataContext);
+
+  const totalItem = basket?.reduce((amount, item) => {
+    return item.amount + amount;
+  }, 0);
+
+  const handleLogout = () => {
+    signOut(auth).catch((err) => console.error(err));
+  };
+
+  return (
+    <section className={Classes.fixed}>
+      <section className={Classes.header_container}>
+        {/* Left: Logo & Delivery */}
+        <div className={Classes.left_section}>
+          <Link to="/">
+            <img
+              src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
+              alt="Amazon Logo"
+              className={Classes.logo}
+            />
+          </Link>
+          <div className={Classes.delivery}>
+            <FaMapMarkerAlt />
+            <div>
+              <span>Deliver to</span>
+              <span>Your Location</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Middle: Search */}
+        <div className={Classes.search_section}>
+          <select className={Classes.category_select}>
+            <option>All</option>
+            <option>Electronics</option>
+            <option>Books</option>
+            <option>Fashion</option>
+          </select>
+          <input
+            type="text"
+            placeholder="Search Amazon"
+            className={Classes.search_input}
+          />
+          <button className={Classes.searchButton}>
+            <FaSearch />
+          </button>
+        </div>
+
+        {/* Right Section */}
+        <div className={Classes.right_section}>
+          {/* Language Selector */}
+          <div className={Classes.language_selector}>
+            <div className={Classes.lang_option}>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                alt="US Flag"
+                width="24"
+              />
+              <span>EN</span>
+            </div>
+          </div>
+
+          {/* Account */}
+          <Link to={!user && "/auto"}>
+            <div className={Classes.account}>
+              {user ? (
+                <>
+                  <p>Hello, {user.email?.split("@")[0]}</p>
+                  <span onClick={handleLogout}>Sign Out</span>
+                </>
+              ) : (
+                <>
+                  <p>Hello, Sign in</p>
+                  <span>Account & Lists</span>
+                </>
+              )}
+            </div>
+          </Link>
+
+          {/* Orders */}
+          <Link to="/orders">
+            <div className={Classes.orders}>
+              <p>Returns</p>
+              <span>& Orders</span>
+            </div>
+          </Link>
+
+          {/* Cart */}
+          <Link to="/cart" className={Classes.cart}>
+            <FaShoppingCart />
+            <span>{totalItem}</span>
+          </Link>
+        </div>
+      </section>
+
+      {/* Lower Header */}
+      <LowerHeader />
+    </section>
+  );
+}
+
+export default Header;

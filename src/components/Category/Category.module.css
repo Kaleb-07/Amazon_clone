@@ -1,0 +1,54 @@
+.categories_container {
+  display: flex;
+  width: 90%;
+  margin: -380px auto 40px auto; /* pulls up under carousel + pushes product down */
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 10px;
+  justify-content: center;
+  position: relative; /* back to normal flow */
+  z-index: 10;
+}
+
+.category_section {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.category_section h2 {
+  font-size: 20px;
+  margin: 0 0 15px 0; /* remove default top margin */
+}
+
+.category_items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.category_card img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+}
+
+.category_card p {
+  margin: 8px 0 15px;
+  font-size: 14px;
+}
+
+.category_section a {
+  margin-top: auto; /* pushes link to bottom like Amazon */
+  font-size: 13px;
+  color: #0066c0;
+  text-decoration: none;
+}
+
+.category_section a:hover {
+  text-decoration: underline;
+}

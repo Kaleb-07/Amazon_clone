@@ -1,0 +1,314 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+/* Container */
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #131921;
+  padding: 10px 20px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* Left section: Logo & Delivery */
+.left_section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 100px;
+  object-fit: contain;
+}
+
+.delivery {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+}
+
+.delivery div {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+/* -------------------- 🔎 Middle Search Bar -------------------- */
+.search_section {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  margin: 0 10px;
+  height: 40px;
+  max-width: 900px;
+  border-radius: 4px;
+  overflow: hidden;
+  gap: 0; /* elements stick together */
+}
+
+/* "All" Select */
+.category_select {
+  height: 100%;
+  border: 2px solid transparent; /* reserve space for border */
+  padding: 0 10px;
+  background-color: #e6e6e6;
+  font-size: 13px;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: border 0.2s ease, background-color 0.2s ease;
+}
+
+.category_select:hover {
+  background-color: #d4d4d4;
+}
+
+/* Select focus → yellow border */
+.category_select:focus {
+  outline: none;
+  border-color: #FFD700;
+}
+
+/* Input */
+.search_input {
+  flex: 1;
+  height: 100%;
+  border: 2px solid transparent; /* reserve space for border */
+  padding: 0 10px;
+  outline: none;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border 0.2s ease;
+  border-radius: 0;
+}
+
+/* Input focus → red border */
+.search_input:focus {
+  border-color: #cc5500;
+}
+
+/* Search Button */
+.searchButton {
+  height: 100%;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #febd69;
+  cursor: pointer;
+  border: 2px solid transparent; /* reserve space for border */
+  border-radius: 0;
+  box-sizing: border-box;
+  transition: border 0.2s ease, background-color 0.2s ease;
+}
+
+/* Button focus → yellow border */
+.searchButton:focus {
+  outline: none;
+  border-color: #FFD700;
+}
+
+/* Optional: hover effect for search button */
+.searchButton:hover {
+  background-color: #d49644;
+}
+
+/* Search Button (icon) */
+.searchButton {
+  background-color: #febd69;
+  height: 100%;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.searchButton:hover {
+  background-color: #d49644; /* 🟠 Your hover color */
+}
+
+/* Icon inside button */
+.searchButton svg {
+  font-size: 20px;
+}
+
+.search_icon {
+  background-color: #febd69;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  border: none;
+  height: 100%;
+  width: 30px;
+  font-size: 18px;
+}
+
+/* Right section: Language, Account, Orders, Cart */
+.right_section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 12px;
+}
+
+/* Language Selector */
+.language_selector {
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.lang_option {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lang_option img {
+  width: 24px;
+  height: auto;
+  border-radius: 2px;
+}
+
+/* Account & Orders */
+.account, .orders {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  cursor: pointer;
+}
+
+.account p, .orders p {
+  font-size: 12px;
+}
+
+.account span, .orders span {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Cart */
+.cart {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
+}
+/* Ensure border is included in element size */
+.logo, .delivery, .account, .orders, .cart, .lang_option {
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid transparent; 
+  border-radius: 4px;
+  transition: border 0.2s ease, background-color 0.2s ease;
+}
+
+/* Hover effect: thicker border without layout shift */
+.logo:hover,
+.delivery:hover,
+.account:hover,
+.orders:hover,
+.cart:hover,
+.language_selector .lang_option:hover {
+  border-color: #ffffff; /* only change color, not size */
+  background-color: transparent;
+}
+
+/* Lower header container */
+.lower_header {
+  background-color: #232f3e; /* Amazon dark blue/nav color */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+  color: white;
+  font-size: 14px;
+  overflow-x: auto; /* allows scrolling if many items */
+}
+
+/* Nav list as horizontal flex */
+.nav_list {
+  display: flex;
+  list-style: none;
+  gap: 20px; /* spacing between nav items */
+  padding: 0;
+  margin: 0;
+}
+
+/* Individual nav items */
+.nav_item {
+  box-sizing: border-box;
+  padding: 6px;
+  border: 1px solid transparent; 
+  border-radius: 4px;
+  transition: border 0.2s ease, background-color 0.2s ease;
+}
+
+/* Optional: active/focused nav item */
+.nav_item:hover {
+  background-color: transparent;
+  border: 1px solid white; /* yellow border on focus */
+}
+
+.fixed{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Responsive Design for Mobile */
+@media screen and (max-width: 576px) {
+  .header_container {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px;
+    height: auto;
+  }
+
+  /* Search bar container full width */
+  .search_section {
+    width: 100%;
+    margin: 10px 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    gap: 0;
+  }
+
+  /* "All" select */
+  .category_select {
+    width: 70px; /* fixed width for select */
+    flex-shrink: 0; /* prevent shrinking */
+  }
+
+  /* Input field: take remaining space but smaller than container */
+  .search_input {
+    flex: 1;        /* input grows to fill space */
+    max-width: calc(100% - 120px); /* leave space for select + button */
+  }
+
+  /* Search button */
+  .searchButton {
+    width: 50px;   /* normal width */
+    flex-shrink: 0;
+  }
+
+  .right_section {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
