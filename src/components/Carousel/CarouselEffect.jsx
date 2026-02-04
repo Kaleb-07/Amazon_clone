@@ -6,18 +6,19 @@ import classes from "./Carousel.module.css";
 
 function CarouselEffect() {
   return (
-    <div>
+    <div className={classes.carousel_container}>
       <Carousel
         autoPlay={true}
         infiniteLoop={true}
         showIndicators={false}
+        showStatus={false}
         showThumbs={false}
       >
         {img.map((imageItemLink, index) => (
-          <img 
-            key={index} 
-            src={imageItemLink} 
-            alt={`carousel-${index}`} 
+          <img
+            key={index}
+            src={imageItemLink}
+            alt={`carousel-${index}`}
           />
         ))}
       </Carousel>

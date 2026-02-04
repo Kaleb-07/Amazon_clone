@@ -1,21 +1,14 @@
-.hero_img{
+.carousel_container {
   position: relative;
 }
-/* .carousel {
-  display: none;
-}
-.hero_carousel {
-  display: none;
-} */
-.hero_img::before{
-  content: "";
+
+.hero_img {
   position: absolute;
-  bottom: 0px;
   width: 100%;
-  height: 300%;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(255,255,255,0),
-    rgba(255,255,255)
-  );
+  height: 250px;
+  bottom: 0;
+  z-index: 10;
+  background-image: linear-gradient(to bottom,
+      rgba(234, 237, 237, 0),
+      rgba(234, 237, 237, 1));
 }
