@@ -8,10 +8,12 @@ function Category() {
       {categories.map((category, index) => (
         <div key={index} className={Classes.category_section}>
           <h2>{category.title}</h2>
-          <div className={Classes.category_items}>
+          <div className={`${Classes.category_items} ${category.items.length === 1 ? Classes.single_grid : ''}`}>
             {category.items.map((item, idx) => (
-              <CategoryCard key={idx} {...item}
-              className={item.span === 4 ? Classes.big_span : ""}
+              <CategoryCard
+                key={idx}
+                {...item}
+                fullImage={category.items.length === 1}
               />
             ))}
           </div>

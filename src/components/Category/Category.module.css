@@ -1,12 +1,14 @@
 .categories_container {
   display: flex;
   width: 90%;
-  margin: -380px auto 40px auto; /* pulls up under carousel + pushes product down */
+  margin: -380px auto 40px auto;
+  /* pulls up under carousel + pushes product down */
   flex-wrap: wrap;
   gap: 16px;
   padding: 10px;
   justify-content: center;
-  position: relative; /* back to normal flow */
+  position: relative;
+  /* back to normal flow */
   z-index: 10;
 }
 
@@ -15,14 +17,15 @@
   padding: 15px;
   border-radius: 8px;
   width: 300px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
 }
 
 .category_section h2 {
   font-size: 20px;
-  margin: 0 0 15px 0; /* remove default top margin */
+  margin: 0 0 15px 0;
+  /* remove default top margin */
 }
 
 .category_items {
@@ -31,10 +34,18 @@
   gap: 10px;
 }
 
+.single_grid {
+  grid-template-columns: 1fr;
+}
+
 .category_card img {
   width: 100%;
   height: 110px;
   object-fit: cover;
+}
+
+.single_image {
+  height: 300px !important;
 }
 
 .category_card p {
@@ -43,7 +54,8 @@
 }
 
 .category_section a {
-  margin-top: auto; /* pushes link to bottom like Amazon */
+  margin-top: auto;
+  /* pushes link to bottom like Amazon */
   font-size: 13px;
   color: #0066c0;
   text-decoration: none;
