@@ -9,8 +9,12 @@ export const reducer = (state, action) => {
   switch (action.type) {
 
     case Type.ADD_TO_BASKET: {
+      const { item } = action;
+      // Ensure price is a number and amount is valid
+      const price = Number(item.price) || 0;
+      
       const existingItem = state.basket.find(
-        item => item.id === action.item.id
+        (basketItem) => basketItem.id === item.id
       );
 
       if (!existingItem) {
@@ -18,17 +22,17 @@ export const reducer = (state, action) => {
           ...state,
           basket: [
             ...state.basket,
-            { ...action.item, price: Number(action.item.price), amount: 1 }
+            { ...item, price, amount: 1 }
           ],
         };
       }
 
       return {
         ...state,
-        basket: state.basket.map(item =>
-          item.id === action.item.id
-            ? { ...item, amount: item.amount + 1 }
-            : item
+        basket: state.basket.map((basketItem) =>
+          basketItem.id === item.id
+            ? { ...basketItem, amount: basketItem.amount + 1 }
+            : basketItem
         ),
       };
     }

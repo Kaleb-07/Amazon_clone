@@ -42,10 +42,11 @@ function Header() {
         {/* Middle: Search */}
         <div className={Classes.search_section}>
           <select className={Classes.category_select}>
-            <option>All</option>
-            <option>Electronics</option>
-            <option>Books</option>
-            <option>Fashion</option>
+            <option value="">All Departments</option>
+            <option value="electronics">Electronics</option>
+            <option value="computers">Computers</option>
+            <option value="smart-home">Smart Home</option>
+            <option value="arts-crafts">Arts & Crafts</option>
           </select>
           <input
             type="text"
