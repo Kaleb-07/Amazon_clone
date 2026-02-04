@@ -93,7 +93,13 @@
   cursor: pointer;
 }
 
-.footer_column li:hover {
+.footer_column a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer_column li:hover,
+.footer_column a:hover {
   text-decoration: underline;
 }
 
@@ -133,11 +139,48 @@
   cursor: pointer;
 }
 
-/* 5. Bottom Dark Footer */
+/* 5. Services Grid (The "Other Part") */
+.footer_services {
+  background-color: #131a22;
+  padding: 40px 20px;
+  border-top: 1px solid #3a4553;
+}
+
+.services_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.service_item {
+  cursor: pointer;
+}
+
+.service_item span {
+  font-size: 11px;
+  font-weight: bold;
+  display: block;
+  color: #fff;
+}
+
+.service_item p {
+  font-size: 10px;
+  color: #999;
+  margin: 0;
+}
+
+.service_item:hover span {
+  text-decoration: underline;
+}
+
+/* 6. Bottom Dark Footer */
 .footer_bottom {
   background-color: #131a22;
   padding: 30px 20px;
   text-align: center;
+  border-top: 1px solid #3a4553;
 }
 
 .bottom_links {
