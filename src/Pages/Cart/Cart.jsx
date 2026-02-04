@@ -11,6 +11,10 @@ import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 function Cart() {
   const [{ basket, user }, dispatch] = useContext(DataContext);
 
+  React.useEffect(() => {
+    document.title = "Amazon.com Shopping Cart";
+  }, []);
+
   // ✅ Calculate subtotal and total items
   const { total, totalItems } = useMemo(() => {
     return basket.reduce(
@@ -23,13 +27,13 @@ function Cart() {
     );
   }, [basket]);
 
-    const increment = (item) => {
-      dispatch({ type: Type.ADD_TO_BASKET, item });
-    };
+  const increment = (item) => {
+    dispatch({ type: Type.ADD_TO_BASKET, item });
+  };
 
-    const decrement = (id) => {
-      dispatch({ type: Type.REMOVE_FROM_BASKET, id });
-    };
+  const decrement = (id) => {
+    dispatch({ type: Type.REMOVE_FROM_BASKET, id });
+  };
 
   return (
     <Layout>

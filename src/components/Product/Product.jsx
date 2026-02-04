@@ -32,14 +32,12 @@ function Product() {
     <>
       {
         isLoading ? (<Loader />) : (<section className={classes.products_container}>
-          {products
-            .filter((singleProduct) => !category || singleProduct.category === category)
-            .map((singleProduct) => (
-              <ProductCard renderAdd={true}
-                key={singleProduct.id}
-                product={singleProduct}
-              />
-            ))}
+          {products.map((singleProduct) => (
+            <ProductCard renderAdd={true}
+              key={singleProduct.id}
+              product={singleProduct}
+            />
+          ))}
         </section>)
       }
     </>

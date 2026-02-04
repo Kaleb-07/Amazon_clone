@@ -13,6 +13,9 @@ import {
 } from "firebase/firestore"
 
 function Orders() {
+  React.useEffect(() => {
+    document.title = "Your Orders";
+  }, []);
 
   const [{ user }] = useContext(DataContext)
   const [orders, setOrders] = useState([])
@@ -47,7 +50,7 @@ function Orders() {
 
           <div>
             {orders.length === 0 && (
-              <div style={{padding: "20px"}}>No orders yet.</div>
+              <div style={{ padding: "20px" }}>No orders yet.</div>
             )}
 
             {orders.map((eachOrder) => (

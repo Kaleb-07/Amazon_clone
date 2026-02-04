@@ -16,6 +16,7 @@ function ProductDetail() {
       .get(`${productUrl}/products/${id}`)
       .then((res) => {
         setProduct(res.data);
+        document.title = `Amazon.com : ${res.data.title}`;
       })
       .catch((err) => {
         console.error(err);
@@ -27,11 +28,11 @@ function ProductDetail() {
 
   return (
     <Layout>
-      {isLoading ? <Loader /> :(<ProductCard 
-      product={product}
-      flex ={true}
-      renderDesc ={true}
-      renderAdd ={true} />)}
+      {isLoading ? <Loader /> : (<ProductCard
+        product={product}
+        flex={true}
+        renderDesc={true}
+        renderAdd={true} />)}
     </Layout>
   );
 }

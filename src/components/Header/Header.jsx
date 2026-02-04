@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { DataContext } from "../../components/DataProvider/DataProvider.jsx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Classes from "./Header.module.css";
 import LowerHeader from "./LowerHeader";
 import { IoSearch } from "react-icons/io5";
@@ -14,6 +14,7 @@ import LocationModal from "./LocationModal";
 function Header() {
   const [{ user, basket, language, category }, dispatch] = useContext(DataContext);
   const [showLocationModal, setShowLocationModal] = React.useState(false);
+  const navigate = useNavigate();
   const t = translations[language?.code] || translations.EN;
 
   const totalItem = basket?.reduce((amount, item) => {
@@ -21,10 +22,16 @@ function Header() {
   }, 0);
 
   const handleCategoryChange = (e) => {
+    const value = e.target.value;
     dispatch({
       type: Type.SET_CATEGORY,
-      category: e.target.value,
+      category: value,
     });
+    if (value) {
+      navigate(`/category/${value}`);
+    } else {
+      navigate("/");
+    }
   };
 
   const handleLogout = () => {
