@@ -3,6 +3,7 @@ import { Type } from "./action.type";
 export const initialState = {
   basket: [],
   user: null,
+  language: { code: "EN", name: "English", flag: "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" },
 };
 
 export const reducer = (state, action) => {
@@ -12,7 +13,7 @@ export const reducer = (state, action) => {
       const { item } = action;
       // Ensure price is a number and amount is valid
       const price = Number(item.price) || 0;
-      
+
       const existingItem = state.basket.find(
         (basketItem) => basketItem.id === item.id
       );
@@ -61,14 +62,20 @@ export const reducer = (state, action) => {
     case Type.EMPTY_BASKET:
       return {
         ...state,
-        basket:[],
-      }  
+        basket: [],
+      }
     case Type.SET_USER:
       return {
         ...state,
         user: action.user,
       };
-      
+
+    case Type.SET_LANGUAGE:
+      return {
+        ...state,
+        language: action.language,
+      };
+
     default:
       return state;
   }

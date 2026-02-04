@@ -6,10 +6,13 @@ import LowerHeader from "./LowerHeader";
 import { IoSearch } from "react-icons/io5";
 import { SlBasket, SlLocationPin } from "react-icons/sl";
 import { signOut } from "firebase/auth";
-import { auth } from "../../Utility/firebase.js"; // ✅ correct import
+import { auth } from "../../Utility/firebase.js";
+import { Type } from "../../Utility/action.type";
+import { translations } from "../../Utility/translations";
 
 function Header() {
-  const [{ user, basket }] = useContext(DataContext);
+  const [{ user, basket, language }, dispatch] = useContext(DataContext);
+  const t = translations[language?.code] || translations.EN;
 
   const totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount;
@@ -17,6 +20,13 @@ function Header() {
 
   const handleLogout = () => {
     signOut(auth).catch((err) => console.error(err));
+  };
+
+  const changeLanguage = (langObj) => {
+    dispatch({
+      type: Type.SET_LANGUAGE,
+      language: langObj
+    });
   };
 
   return (
@@ -34,8 +44,8 @@ function Header() {
           <div className={Classes.delivery}>
             <SlLocationPin />
             <div>
-              <span>Deliver to</span>
-              <span>Your Location</span>
+              <span>{t.deliver_to}</span>
+              <span>{user ? "Ethiopia" : t.location}</span>
             </div>
           </div>
         </div>
@@ -43,7 +53,7 @@ function Header() {
         {/* Middle: Search */}
         <div className={Classes.search_section}>
           <select className={Classes.category_select}>
-            <option value="">All Departments</option>
+            <option value="">{t.all}</option>
             <option value="electronics">Electronics</option>
             <option value="computers">Computers</option>
             <option value="smart-home">Smart Home</option>
@@ -51,7 +61,7 @@ function Header() {
           </select>
           <input
             type="text"
-            placeholder="Search Amazon"
+            placeholder={t.search_placeholder}
             className={Classes.search_input}
           />
           <button className={Classes.searchButton}>
@@ -61,15 +71,41 @@ function Header() {
 
         {/* Right Section */}
         <div className={Classes.right_section}>
-          {/* Language Selector */}
-          <div className={Classes.language_selector}>
+          {/* 🌎 Language Selector Dropdown */}
+          <div className={Classes.language_dropdown}>
             <div className={Classes.lang_option}>
               <img
-                src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
-                alt="US Flag"
-                width="24"
+                src={language?.flag}
+                alt={language?.code}
               />
-              <span>EN</span>
+              <span>{language?.code}</span>
+              <span className={Classes.dropdown_arrow}>▼</span>
+            </div>
+
+            {/* Dropdown Content */}
+            <div className={Classes.lang_dropdown_content}>
+              <div className={Classes.triangle}></div>
+              <div className={Classes.lang_list}>
+                <div className={Classes.lang_item} onClick={() => changeLanguage({ code: "EN", name: "English", flag: "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" })}>
+                  <input type="radio" checked={language?.code === "EN"} readOnly />
+                  <span>English - EN</span>
+                </div>
+                <hr />
+                <div className={Classes.lang_item} onClick={() => changeLanguage({ code: "ES", name: "Español", flag: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg" })}>
+                  <input type="radio" checked={language?.code === "ES"} readOnly />
+                  <span>Español - ES</span>
+                </div>
+                <div className={Classes.lang_item} onClick={() => changeLanguage({ code: "AR", name: "العربية", flag: "https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg" })}>
+                  <input type="radio" checked={language?.code === "AR"} readOnly />
+                  <span>العربية - AR</span>
+                </div>
+                <hr />
+                <div className={Classes.lang_footer}>
+                  <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="US Flag" />
+                  <span>You are shopping on Amazon.com</span>
+                </div>
+                <div className={Classes.change_country}>Change country/region.</div>
+              </div>
             </div>
           </div>
 
@@ -84,8 +120,8 @@ function Header() {
               </>
             ) : (
               <Link to="/auto" className={Classes.login_link}>
-                <p>Hello, Sign in</p>
-                <span>Account & Lists</span>
+                <p>{t.hello_sign_in}</p>
+                <span>{t.account_lists}</span>
               </Link>
             )}
           </div>
@@ -93,8 +129,8 @@ function Header() {
           {/* Orders */}
           <Link to="/orders">
             <div className={Classes.orders}>
-              <p>Returns</p>
-              <span>& Orders</span>
+              <p>{t.returns}</p>
+              <span>{t.orders}</span>
             </div>
           </Link>
 
@@ -104,7 +140,7 @@ function Header() {
               <SlBasket />
               <span className={Classes.cart_count}>{totalItem}</span>
             </div>
-            <span className={Classes.cart_text}>Cart</span>
+            <span className={Classes.cart_text}>{t.cart}</span>
           </Link>
         </div>
       </section>

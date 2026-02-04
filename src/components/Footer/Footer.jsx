@@ -2,14 +2,24 @@ import React, { useContext } from "react";
 import './Footer.css';
 import { DataContext } from "../DataProvider/DataProvider";
 import { Link } from "react-router-dom";
+import { translations } from "../../Utility/translations";
+import { Type } from "../../Utility/action.type";
 
 function Footer() {
-  const [{ user }] = useContext(DataContext);
+  const [{ user, language }, dispatch] = useContext(DataContext);
+  const t = translations[language?.code] || translations.EN;
 
   const backToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
+    });
+  };
+
+  const changeLanguage = (langObj) => {
+    dispatch({
+      type: Type.SET_LANGUAGE,
+      language: langObj
     });
   };
 
@@ -20,11 +30,11 @@ function Footer() {
         <div className="footer_recommendations">
           <hr className="footer_divider" />
           <div className="recommendations_inner">
-            <p>See personalized recommendations</p>
+            <p>{t.personalized_rec}</p>
             <Link to="/auto">
-              <button className="signin_button">Sign in</button>
+              <button className="signin_button">{t.signin}</button>
             </Link>
-            <p className="new_customer">New customer? <Link to="/auto">Start here.</Link></p>
+            <p className="new_customer">{t.new_customer} <Link to="/auto">{t.start_here}</Link></p>
           </div>
           <hr className="footer_divider" />
         </div>
@@ -32,53 +42,53 @@ function Footer() {
 
       {/* 2. Back to Top */}
       <div className="back_to_top" onClick={backToTop}>
-        Back to top
+        {t.back_to_top}
       </div>
 
       {/* 3. Middle Footer (Nav Columns with project links) */}
       <div className="footer_middle">
         <div className="footer_column">
-          <h3>Get to Know Us</h3>
+          <h3>{t.get_to_know}</h3>
           <ul>
-            <li>Careers</li>
-            <li>Blog</li>
-            <li>About Amazon</li>
-            <li>Sustainability</li>
-            <li>Press Center</li>
-            <li>Investor Relations</li>
-            <li>Amazon Devices</li>
-            <li>Amazon Science</li>
+            <li>{t.careers}</li>
+            <li>{t.blog}</li>
+            <li>{t.about}</li>
+            <li>{t.sustainability}</li>
+            <li>{t.press}</li>
+            <li>{t.investor}</li>
+            <li>{t.devices}</li>
+            <li>{t.science}</li>
           </ul>
         </div>
         <div className="footer_column">
-          <h3>Make Money with Us</h3>
+          <h3>{t.make_money}</h3>
           <ul>
-            <li>Sell products on Amazon</li>
-            <li>Sell apps on Amazon</li>
-            <li>Become an Affiliate</li>
-            <li>Advertise Your Products</li>
-            <li>Self-Publish with Us</li>
-            <li>Host an Amazon Hub</li>
+            <li>{t.sell_on_amazon}</li>
+            <li>{t.sell_apps}</li>
+            <li>{t.become_affiliate}</li>
+            <li>{t.advertise}</li>
+            <li>{t.self_publish}</li>
+            <li>{t.host_hub}</li>
           </ul>
         </div>
         <div className="footer_column">
-          <h3>Amazon Payment Products</h3>
+          <h3>{t.payment_products}</h3>
           <ul>
-            <li>Amazon Business Card</li>
-            <li>Shop with Points</li>
-            <li>Reload Your Balance</li>
-            <li>Amazon Currency Converter</li>
+            <li>{t.business_card}</li>
+            <li>{t.shop_with_points}</li>
+            <li>{t.reload_balance}</li>
+            <li>{t.currency_converter}</li>
           </ul>
         </div>
         <div className="footer_column">
-          <h3>Let Us Help You</h3>
+          <h3>{t.let_us_help}</h3>
           <ul>
-            <li>Amazon and COVID-19</li>
-            <li><Link to="/auto">Your Account</Link></li>
-            <li><Link to="/orders">Your Orders</Link></li>
-            <li>Shipping Rates & Policies</li>
-            <li>Returns & Replacements</li>
-            <li>Help</li>
+            <li>{t.covid19}</li>
+            <li><Link to="/auto">{t.your_account}</Link></li>
+            <li><Link to="/orders">{t.your_orders}</Link></li>
+            <li>{t.shipping_rates}</li>
+            <li>{t.returns_replacements}</li>
+            <li>{t.help}</li>
           </ul>
         </div>
       </div>
@@ -93,9 +103,18 @@ function Footer() {
           </Link>
         </div>
         <div className="footer_selectors">
-          <div className="selector_box">English</div>
-          <div className="selector_box">$ USD - U.S. Dollar</div>
-          <div className="selector_box">United States</div>
+          <div className="selector_box language_box">
+            <span>{language?.name}</span>
+            <div className="footer_lang_dropdown">
+              <p onClick={() => changeLanguage({ code: "EN", name: "English", flag: "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" })}>English</p>
+              <p onClick={() => changeLanguage({ code: "ES", name: "Español", flag: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg" })}>Español</p>
+              <p onClick={() => changeLanguage({ code: "AR", name: "العربية", flag: "https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg" })}>العربية</p>
+            </div>
+          </div>
+          <div className="selector_box country_box">
+            <img src={t.country_flag} alt={t.country} />
+            <span>{t.country}</span>
+          </div>
         </div>
       </div>
 
@@ -139,10 +158,10 @@ function Footer() {
       {/* 6. Bottom Gray Footer (Copyright/Links) */}
       <div className="footer_bottom">
         <div className="bottom_links">
-          <span>Conditions of Use</span>
-          <span>Privacy Notice</span>
+          <span>{t.conditions_use}</span>
+          <span>{t.privacy_notice}</span>
           <span>Consumer Health Data Privacy Disclosure</span>
-          <span>Your Ads Privacy Choices</span>
+          <span>{t.ads_choices}</span>
         </div>
         <p>© 1996-2024, AmazonClone.com, Inc. or its affiliates</p>
       </div>
