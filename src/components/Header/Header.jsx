@@ -3,7 +3,8 @@ import { DataContext } from "../../components/DataProvider/DataProvider.jsx";
 import { Link } from "react-router-dom";
 import Classes from "./Header.module.css";
 import LowerHeader from "./LowerHeader";
-import { FaSearch, FaShoppingCart, FaMapMarkerAlt } from "react-icons/fa";
+import { IoSearch } from "react-icons/io5";
+import { SlBasket, SlLocationPin } from "react-icons/sl";
 import { signOut } from "firebase/auth";
 import { auth } from "../../Utility/firebase.js"; // ✅ correct import
 
@@ -31,7 +32,7 @@ function Header() {
             />
           </Link>
           <div className={Classes.delivery}>
-            <FaMapMarkerAlt />
+            <SlLocationPin />
             <div>
               <span>Deliver to</span>
               <span>Your Location</span>
@@ -54,7 +55,7 @@ function Header() {
             className={Classes.search_input}
           />
           <button className={Classes.searchButton}>
-            <FaSearch />
+            <IoSearch />
           </button>
         </div>
 
@@ -99,8 +100,11 @@ function Header() {
 
           {/* Cart */}
           <Link to="/cart" className={Classes.cart}>
-            <FaShoppingCart />
-            <span>{totalItem}</span>
+            <div className={Classes.cart_icon_container}>
+              <SlBasket />
+              <span className={Classes.cart_count}>{totalItem}</span>
+            </div>
+            <span className={Classes.cart_text}>Cart</span>
           </Link>
         </div>
       </section>

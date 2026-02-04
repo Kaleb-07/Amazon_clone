@@ -39,14 +39,8 @@ function ProductCard({ product, flex, renderDesc, renderAdd }) {
           )}
         </div>
 
-        <div className={classes.price_container}>
+        <div>
           <CurrencyFormat amount={price} />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Prime_logo.png" alt="prime" className={classes.prime_logo} />
-        </div>
-
-        <div className={classes.delivery_info}>
-          <p>Get it as soon as <b>Tomorrow, Feb 8</b></p>
-          <p>FREE Shipping by Amazon</p>
         </div>
         {
           renderAdd && <div>
