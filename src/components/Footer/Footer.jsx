@@ -106,9 +106,24 @@ function Footer() {
           <div className="selector_box language_box">
             <span>{language?.name}</span>
             <div className="footer_lang_dropdown">
-              <p onClick={() => changeLanguage({ code: "EN", name: "English", flag: "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" })}>English</p>
-              <p onClick={() => changeLanguage({ code: "ES", name: "Español", flag: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg" })}>Español</p>
-              <p onClick={() => changeLanguage({ code: "AR", name: "العربية", flag: "https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg" })}>العربية</p>
+              <div className="footer_triangle"></div>
+              <div className="footer_lang_header">
+                <span>Change language</span>
+              </div>
+              <div className="footer_lang_list">
+                <div className="footer_lang_item" onClick={() => changeLanguage({ code: "EN", name: "English", flag: "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" })}>
+                  <input type="radio" checked={language?.code === "EN"} readOnly />
+                  <span>English - EN</span>
+                </div>
+                <div className="footer_lang_item" onClick={() => changeLanguage({ code: "ES", name: "Español", flag: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg" })}>
+                  <input type="radio" checked={language?.code === "ES"} readOnly />
+                  <span>Español - ES</span>
+                </div>
+                <div className="footer_lang_item" onClick={() => changeLanguage({ code: "AR", name: "العربية", flag: "https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg" })}>
+                  <input type="radio" checked={language?.code === "AR"} readOnly />
+                  <span>العربية - AR</span>
+                </div>
+              </div>
             </div>
           </div>
           <div className="selector_box country_box">

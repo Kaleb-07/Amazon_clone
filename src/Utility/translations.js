@@ -77,7 +77,16 @@ export const translations = {
 
         // Country
         country: "United States",
-        country_flag: "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+        country_flag: "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
+
+        // Location Modal
+        choose_location: "Choose your location",
+        delivery_options_text: "Delivery options and delivery speeds may vary for different locations",
+        signin_to_see_address: "Sign in to see your addresses",
+        enter_zip_code: "enter a US zip code",
+        apply: "Apply",
+        ship_outside_us: "ship outside the US",
+        done: "Done"
     },
     ES: {
         deliver_to: "Enviar a",
@@ -122,7 +131,7 @@ export const translations = {
         shop_with_points: "Compra con puntos",
         reload_balance: "Recarga tu saldo",
         currency_converter: "Conversor de divisas de Amazon",
-        covid19: "Amazon and COVID-19",
+        covid19: "Amazon y el COVID-19",
         your_account: "Tu cuenta",
         your_orders: "Tus pedidos",
         shipping_rates: "Tarifas y políticas de envío",
@@ -147,7 +156,16 @@ export const translations = {
 
         // Country
         country: "España",
-        country_flag: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg"
+        country_flag: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg",
+
+        // Location Modal ES
+        choose_location: "Elige tu ubicación",
+        delivery_options_text: "Las opciones y velocidades de entrega pueden variar para diferentes ubicaciones",
+        signin_to_see_address: "Identifícate para ver tus direcciones",
+        enter_zip_code: "introduce un código postal de EE. UU.",
+        apply: "Aplicar",
+        ship_outside_us: "enviar fuera de EE. UU.",
+        done: "Hecho"
     },
     AR: {
         deliver_to: "التوصيل إلى",
@@ -217,6 +235,15 @@ export const translations = {
 
         // Country
         country: "المملكة العربية السعودية",
-        country_flag: "https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg"
+        country_flag: "https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg",
+
+        // Location Modal AR
+        choose_location: "اختر موقعك",
+        delivery_options_text: "قد تختلف خيارات وسرعات التوصيل باختلاف المواقع",
+        signin_to_see_address: "تسجيل الدخول لعرض عناوينك",
+        enter_zip_code: "أدخل رمزاً بريدياً للولايات المتحدة",
+        apply: "تطبيق",
+        ship_outside_us: "الشحن خارج الولايات المتحدة",
+        done: "تم"
     }
 };

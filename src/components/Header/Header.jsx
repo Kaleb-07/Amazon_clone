@@ -9,9 +9,11 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../Utility/firebase.js";
 import { Type } from "../../Utility/action.type";
 import { translations } from "../../Utility/translations";
+import LocationModal from "./LocationModal";
 
 function Header() {
   const [{ user, basket, language }, dispatch] = useContext(DataContext);
+  const [showLocationModal, setShowLocationModal] = React.useState(false);
   const t = translations[language?.code] || translations.EN;
 
   const totalItem = basket?.reduce((amount, item) => {
@@ -41,7 +43,7 @@ function Header() {
               className={Classes.logo}
             />
           </Link>
-          <div className={Classes.delivery}>
+          <div className={Classes.delivery} onClick={() => setShowLocationModal(true)}>
             <SlLocationPin />
             <div>
               <span>{t.deliver_to}</span>
@@ -147,6 +149,12 @@ function Header() {
 
       {/* Lower Header */}
       <LowerHeader />
+
+      {/* Location Modal */}
+      <LocationModal
+        show={showLocationModal}
+        onClose={() => setShowLocationModal(false)}
+      />
     </section>
   );
 }
