@@ -24,6 +24,10 @@
 .logo {
   width: 100px;
   object-fit: contain;
+  border-radius: 4px;
+  /* Increased for visibility */
+  border: 1px solid transparent;
+  /* Added to help visualize edge if needed */
 }
 
 .delivery {
@@ -115,6 +119,11 @@
 .searchButton:focus {
   outline: none;
   border-color: #FFD700;
+}
+
+.search_section {
+  border-radius: 8px !important;
+  /* Force rounding on the search bar */
 }
 
 /* Optional: hover effect for search button */
