@@ -73,21 +73,21 @@ function Header() {
           </div>
 
           {/* Account */}
-          <Link to={!user && "/auto"}>
-            <div className={Classes.account}>
-              {user ? (
-                <>
-                  <p>Hello, {user.email?.split("@")[0]}</p>
-                  <span onClick={handleLogout}>Sign Out</span>
-                </>
-              ) : (
-                <>
-                  <p>Hello, Sign in</p>
-                  <span>Account & Lists</span>
-                </>
-              )}
-            </div>
-          </Link>
+          <div className={Classes.account}>
+            {user ? (
+              <>
+                <p>Hello, {user.email?.split("@")[0]}</p>
+                <span onClick={handleLogout} className={Classes.signout_btn}>
+                  Sign Out
+                </span>
+              </>
+            ) : (
+              <Link to="/auto" className={Classes.login_link}>
+                <p>Hello, Sign in</p>
+                <span>Account & Lists</span>
+              </Link>
+            )}
+          </div>
 
           {/* Orders */}
           <Link to="/orders">
