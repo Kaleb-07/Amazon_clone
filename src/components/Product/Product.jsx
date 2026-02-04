@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import ProductCard from "./ProductCard";
 import Loader from "../Loader/Loader";
 import classes from "./Product.module.css";
+import { DataContext } from "../DataProvider/DataProvider";
 
 function Product() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [{ category }] = useContext(DataContext);
 
   useEffect(() => {
     axios
@@ -28,16 +30,18 @@ function Product() {
 
   return (
     <>
-    {
-      isLoading ? (<Loader/>) : (    <section className={classes.products_container}>
-      {products.map((singleProduct) => (
-        <ProductCard renderAdd={true}
-          key={singleProduct.id}
-          product={singleProduct}
-        />
-      ))}
-    </section>)
-    }
+      {
+        isLoading ? (<Loader />) : (<section className={classes.products_container}>
+          {products
+            .filter((singleProduct) => !category || singleProduct.category === category)
+            .map((singleProduct) => (
+              <ProductCard renderAdd={true}
+                key={singleProduct.id}
+                product={singleProduct}
+              />
+            ))}
+        </section>)
+      }
     </>
   );
 }

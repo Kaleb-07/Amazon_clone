@@ -4,6 +4,7 @@ export const initialState = {
   basket: [],
   user: null,
   language: { code: "EN", name: "English", flag: "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" },
+  category: "",
 };
 
 export const reducer = (state, action) => {
@@ -74,6 +75,12 @@ export const reducer = (state, action) => {
       return {
         ...state,
         language: action.language,
+      };
+
+    case Type.SET_CATEGORY:
+      return {
+        ...state,
+        category: action.category,
       };
 
     default:

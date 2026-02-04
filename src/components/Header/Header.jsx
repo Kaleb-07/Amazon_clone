@@ -12,13 +12,20 @@ import { translations } from "../../Utility/translations";
 import LocationModal from "./LocationModal";
 
 function Header() {
-  const [{ user, basket, language }, dispatch] = useContext(DataContext);
+  const [{ user, basket, language, category }, dispatch] = useContext(DataContext);
   const [showLocationModal, setShowLocationModal] = React.useState(false);
   const t = translations[language?.code] || translations.EN;
 
   const totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount;
   }, 0);
+
+  const handleCategoryChange = (e) => {
+    dispatch({
+      type: Type.SET_CATEGORY,
+      category: e.target.value,
+    });
+  };
 
   const handleLogout = () => {
     signOut(auth).catch((err) => console.error(err));
@@ -54,12 +61,16 @@ function Header() {
 
         {/* Middle: Search */}
         <div className={Classes.search_section}>
-          <select className={Classes.category_select}>
+          <select
+            className={Classes.category_select}
+            value={category}
+            onChange={handleCategoryChange}
+          >
             <option value="">{t.all}</option>
             <option value="electronics">Electronics</option>
-            <option value="computers">Computers</option>
-            <option value="smart-home">Smart Home</option>
-            <option value="arts-crafts">Arts & Crafts</option>
+            <option value="jewelery">Jewelery</option>
+            <option value="men's clothing">Men's Clothing</option>
+            <option value="women's clothing">Women's Clothing</option>
           </select>
           <input
             type="text"
