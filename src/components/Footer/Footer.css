@@ -1,53 +1,164 @@
-.footer_container {
-  background-color: #141414;
+.footer_outer_container {
+  background-color: #232f3e;
   color: #fff;
-  padding: 40px 20px;
   font-family: Arial, sans-serif;
+  margin-top: 40px;
+}
+
+/* 1. Recommendations section */
+.footer_recommendations {
+  background-color: #fff;
+  color: #000;
+  padding: 30px 0;
   text-align: center;
 }
 
-.footer_social {
-  margin-bottom: 30px;
+.recommendations_inner {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.footer_social svg {
-  margin: 0 10px;
+.footer_divider {
+  border: 0;
+  height: 1px;
+  background: #e7e7e7;
+  margin: 15px 0;
+}
+
+.footer_recommendations p {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.signin_button {
+  background: linear-gradient(to bottom, #f7dfa2, #f0c14b);
+  border: 1px solid #a88734;
+  border-radius: 3px;
+  padding: 5px 60px;
+  font-size: 12px;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 28px;
-  transition: color 0.3s;
+  margin-bottom: 5px;
 }
 
-.footer_social svg:hover {
-  color: #e50914; /* Netflix red on hover */
+.new_customer {
+  font-size: 11px !important;
 }
 
-.footer_links {
+.new_customer a {
+  color: #0066c0;
+  text-decoration: none;
+}
+
+/* 2. Back to Top */
+.back_to_top {
+  background-color: #37475a;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.back_to_top:hover {
+  background-color: #485769;
+}
+
+/* 3. Middle Footer */
+.footer_middle {
   display: flex;
   justify-content: center;
+  gap: 80px;
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
   flex-wrap: wrap;
-  gap: 40px;
-  margin-bottom: 30px;
 }
 
-.footer_column {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  min-width: 150px;
+.footer_column h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
 }
 
-.footer_column p {
-  margin: 0;
+.footer_column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer_column li {
   font-size: 14px;
+  margin-bottom: 10px;
+  color: #ddd;
   cursor: pointer;
-  transition: color 0.3s;
 }
 
-.footer_column p:hover {
-  color: #e50914;
+.footer_column li:hover {
+  text-decoration: underline;
 }
 
-.footer_copy {
-  font-size: 13px;
-  color: #757575;
+.footer_line {
+  border: 0;
+  height: 1px;
+  background: #3a4553;
+  margin: 20px 0;
+}
+
+/* 4. Branding section */
+.footer_branding {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 30px 0;
+  flex-wrap: wrap;
+}
+
+.footer_logo_container img {
+  width: 80px;
+  object-fit: contain;
+}
+
+.footer_selectors {
+  display: flex;
+  gap: 10px;
+}
+
+.selector_box {
+  border: 1px solid #848688;
+  padding: 6px 15px;
+  border-radius: 3px;
+  font-size: 12px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+/* 5. Bottom Dark Footer */
+.footer_bottom {
+  background-color: #131a22;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.bottom_links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.bottom_links span {
+  font-size: 12px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.bottom_links span:hover {
+  text-decoration: underline;
+}
+
+.footer_bottom p {
+  font-size: 12px;
+  color: #ccc;
 }
