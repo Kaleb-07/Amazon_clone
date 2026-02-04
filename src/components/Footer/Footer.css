@@ -2,43 +2,55 @@
   background-color: #232f3e;
   color: #fff;
   font-family: Arial, sans-serif;
-  margin-top: 40px;
+  margin-top: 0;
 }
 
 /* 1. Recommendations section */
 .footer_recommendations {
   background-color: #fff;
   color: #000;
-  padding: 30px 0;
+  padding: 40px 0;
   text-align: center;
-}
-
-.recommendations_inner {
-  max-width: 600px;
-  margin: 0 auto;
 }
 
 .footer_divider {
   border: 0;
   height: 1px;
-  background: #e7e7e7;
-  margin: 15px 0;
+  background: #ddd;
+  /* Darker for more visibility */
+  width: 100%;
+  margin: 0;
+}
+
+.recommendations_inner {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px 0;
+  /* Add internal padding now that lines are outside */
 }
 
 .footer_recommendations p {
-  font-size: 13px;
-  margin-bottom: 10px;
+  font-size: 16px;
+  margin-bottom: 12px;
+  font-weight: bold;
 }
 
 .signin_button {
   background: linear-gradient(to bottom, #f7dfa2, #f0c14b);
   border: 1px solid #a88734;
-  border-radius: 3px;
-  padding: 5px 60px;
-  font-size: 12px;
+  border-radius: 4px;
+  padding: 8px 100px;
+  font-size: 14px;
   font-weight: bold;
   cursor: pointer;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .4) inset;
+  transition: background 0.2s;
+}
+
+.signin_button:hover {
+  background: linear-gradient(to bottom, #f5d78e, #eeb933);
+  border-color: #9c7d31;
 }
 
 .new_customer {

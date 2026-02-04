@@ -18,15 +18,15 @@ function Footer() {
       {/* 1. Personalized Recommendations (Dynamic & Functional) */}
       {!user && (
         <div className="footer_recommendations">
+          <hr className="footer_divider" />
           <div className="recommendations_inner">
-            <hr className="footer_divider" />
             <p>See personalized recommendations</p>
             <Link to="/auto">
               <button className="signin_button">Sign in</button>
             </Link>
             <p className="new_customer">New customer? <Link to="/auto">Start here.</Link></p>
-            <hr className="footer_divider" />
           </div>
+          <hr className="footer_divider" />
         </div>
       )}
 
