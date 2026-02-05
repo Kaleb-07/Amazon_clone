@@ -95,7 +95,7 @@ function Footer() {
 
       <hr className="footer_line" />
 
-      {/* 4. Bottom Branding */}
+      {/* 4, Bottom Branding */}
       <div className="footer_branding">
         <div className="footer_logo_container">
           <Link to="/">
