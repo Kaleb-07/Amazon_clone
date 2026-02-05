@@ -40,12 +40,12 @@ function Footer() {
         </div>
       )}
 
-      {/* 2. Back to Top */}
+      {/* 2, Back to Top */}
       <div className="back_to_top" onClick={backToTop}>
         {t.back_to_top}
       </div>
 
-      {/* 3. Middle Footer (Nav Columns with project links) */}
+      {/* 3, Middle Footer (Nav Columns with project links) */}
       <div className="footer_middle">
         <div className="footer_column">
           <h3>{t.get_to_know}</h3>
