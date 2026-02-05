@@ -133,7 +133,7 @@ function Footer() {
         </div>
       </div>
 
-      {/* 5. Detailed Services Grid */}
+      {/* 5, Detailed Services Grid */}
       <div className="footer_services">
         <div className="services_grid">
           <div className="service_item"><span>Amazon Music</span><p>Stream millions of songs</p></div>
@@ -170,7 +170,7 @@ function Footer() {
         </div>
       </div>
 
-      {/* 6. Bottom Gray Footer (Copyright/Links) */}
+      {/* 6, Bottom Gray Footer (Copyright/Links) */}
       <div className="footer_bottom">
         <div className="bottom_links">
           <span>{t.conditions_use}</span>
