@@ -25,7 +25,7 @@ function Footer() {
 
   return (
     <div className="footer_outer_container">
-      {/* 1. Personalized Recommendations (Dynamic & Functional) */}
+      {/* 1, Personalized Recommendations (Dynamic & Functional) */}
       {!user && (
         <div className="footer_recommendations">
           <hr className="footer_divider" />
