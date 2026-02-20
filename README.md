@@ -9,3 +9,5 @@ This web to Cloning Amazon web... just am trying my best.
   React:- UI & components
   Vite:- Fast dev server + build tool  
   Axios:- API requests
+the deployed link of this cloning project it is calld Amazon cloning 
+https://amazon-clone-teal-one.vercel.app/
