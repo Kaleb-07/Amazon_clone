@@ -26,7 +26,6 @@ function Orders() {
       return
     }
 
-    // Firestore path: users/{uid}/orders
     const ordersRef = collection(db, "users", user.uid, "orders")
     const q = query(ordersRef, orderBy("created", "desc"))
 
