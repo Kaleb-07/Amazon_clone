@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
 import Classes from "./SignUp.module.css";
 import { Link, useNavigate,useLocation } from "react-router-dom";
-import { auth } from "../../Utility/firebase"; // named import
+import { auth } from "../../Utility/firebase"; 
+// named import
 import { signInWithEmailAndPassword , createUserWithEmailAndPassword } from "firebase/auth"; // you can use this later
 import {DataContext} from "../../components/DataProvider/DataProvider";
 import {Type} from "../../Utility/action.type";
