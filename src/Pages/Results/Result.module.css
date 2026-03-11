@@ -15,6 +15,12 @@
     gap: 10px;
 }
 
+.results_info p {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0;
+}
+
 .results_info span {
     color: #c45500;
     font-size: 14px;
