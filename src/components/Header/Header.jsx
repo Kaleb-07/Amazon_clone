@@ -91,7 +91,7 @@ function Header() {
 
         {/* Right Section */}
         <div className={Classes.right_section}>
-          {/* 🌎 Language Selector Dropdown */}
+          {/* Language Selector Dropdown */}
           <div className={Classes.language_dropdown}>
             <div className={Classes.lang_option}>
               <img
